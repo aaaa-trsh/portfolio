@@ -28,7 +28,15 @@
             </div>
         </div>
         <div class="content-container">
-            <navigation-bar v-if="$route.path !== '/'"></navigation-bar>
+            <navigation-bar v-if="$route.path !== '/'">
+            </navigation-bar>
+            <p>{{windowWidth}}</p>
+            <component 
+                class="mobile-utility-bar-content"
+                v-if="windowWidth < 650"
+                :is="utilityBarComponent"
+                @set-utility-data="onSetUtilityData"
+            ></component>
             <router-view 
                 class="content"
                 @set-utility-bar="onSetUtilityBar"

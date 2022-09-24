@@ -68,6 +68,7 @@ body {
 }
 
 .utility-bar-content li .strikethrough {
+    top: -5px;
     width: 0%;
     white-space: nowrap;
     display: flex;
@@ -85,7 +86,7 @@ body {
 .content-container {
     flex: 1;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     overflow: auto;
 }
 
@@ -188,6 +189,37 @@ body {
   
 ::selection {
     background: #fff4;
+}
+
+@media (max-width: 640px) {
+    .content-container {
+        flex-flow: column;
+    }
+
+    .navigation-bar-container {
+        width: 100%;
+        padding: 0;
+        height: fit-content;
+        margin-bottom: 10px;
+    }
+    .navigation-bar-container ul {
+        width: calc(100% - 50px);
+        justify-content: space-between;
+        display: flex;
+        padding: 0 25px;
+    }
+
+    .navigation-bar-container li {
+        text-align: center;
+    }
+
+    .utility-bar-content {
+        display: none;
+    }
+
+    .utility-bar-logo {
+        margin: 0 auto;
+    }
 }
 
 a {
