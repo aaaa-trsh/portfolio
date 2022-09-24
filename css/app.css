@@ -1,6 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,100;1,300;1,400;1,900&display=swap');
+
 body {
-    padding: 30px;
+    padding: 0;
+    margin: 0;
     background-color: black;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     color: white;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.utility-bar-container {
+    height: 50px;
+    padding: 25px;
+    display: flex;
+}
+
+.utility-bar-logo {
+    height: 50px;
+    aspect-ratio: 1;
+    background-color: white;
+    z-index: 1;
+}
+
+.utility-bar-content {
+    width: 100%;
+    text-align: right;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.utility-bar-content > div {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    position: absolute;
+}
+
+.utility-bar-content ul {
+    white-space: nowrap;
+    display: flex;
+    float: right;
+}
+
+.utility-bar-content li {
+    display: inline;
+    margin: 0 2em 0 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.strikethrough {
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    top: 50%;
+    position: absolute;
+    transition: .1s;
+    pointer-events: none;
+}
+
+.utility-bar-content li .strikethrough {
+    width: 0%;
+    white-space: nowrap;
+    display: flex;
+    float: right;
+}
+
+.utility-bar-content li:hover .strikethrough {
+    width: 100%;
+}
+
+.utility-bar-content .strikethrough.active {
+    width: 100%;
+}
+
+.content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+}
+
+.navigation-bar-container {
+    height: 100%;
+    width: 200px;
+    padding: 0 25px;
+}
+
+.navigation-bar-container li {
+    user-select: none;
+    font-size: 25px;
+    margin: 12px 0;
+    position: relative;
+    width: fit-content;
+}
+
+.navigation-bar-container .strikethrough.active {
+    width: 100%;
+}
+
+.navigation-bar-container li:hover .strikethrough {
+    width: 100%;
+}
+
+.content {
+    flex: 1;
+    background: linear-gradient(#000c, #0000), url(../assets/content-bg.png) repeat fixed;
+    background-size: 200px;
+}
+
+.content::after {
+    filter: invert(100%);
+}
+
+.article-container {
+    padding-left: 8px;
+    width: 98%;
+    animation: fade 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.article-title {
+    font-size: 100px;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    transform: scaleY(0.9);
+    /* border-bottom: 2px solid white; */
+    width: fit-content;
+    text-shadow:
+    -1.5px 0px 0 #fff,
+    -1px 0px 0 #fff,
+    1px 0px 0 #fff,
+    1.5px 0px 0 #fff;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.article-text {
+    margin-left: 7px;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+    width: 40%;
+}
+
+.article-gallery {
+    margin: 50px 7px 50px;
+    display: flex;
+    width: 100%;
+    /* border: 1px red solid; */
+    height: 200px;
+    gap: 50px;
+}
+
+.article-gallery-item {
+    object-fit: cover;
+    /* display: none; */
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border: 6.5px solid transparent;
+    background-clip: padding-box;  
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+::-moz-selection { /* Code for Firefox */
+    background: #fff4;
+}
+  
+::selection {
+    background: #fff4;
+}
+
+a {
+    cursor: pointer;
 }

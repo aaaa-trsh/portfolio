@@ -8,14 +8,31 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+    <link rel="stylesheet" href="./css/reset.css"/>
     <link rel="stylesheet" href="./css/app.css"/>
+
+    <link rel="stylesheet" href="./views/projects-view/projects.css"/>
+    <link rel="stylesheet" href="./views/work-view/work.css"/>
+    <link rel="stylesheet" href="./views/hero-view/hero.css"/>
 </head>
 <body>
     <div id="app">
-        <utility-bar></utility-bar>
+        <div class="utility-bar-container">
+            <router-link to="/" class="utility-bar-logo"></router-link>
+            <div class="utility-bar-content">
+                <component 
+                    class="utility-bar-content"
+                    :is="utilityBarComponent"
+                    @set-utility-data="onSetUtilityData"
+                />
+            </div>
+        </div>
         <div class="content-container">
-            <navigation-bar></navigation-bar>
-            <router-view></router-view>
+            <navigation-bar v-if="$route.path !== '/'"></navigation-bar>
+            <router-view 
+                class="content"
+                @set-utility-bar="onSetUtilityBar"
+            />
         </div>
     </div>
     <script src="./app.js" type="module"></script>
