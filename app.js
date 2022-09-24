@@ -40,16 +40,30 @@ const app = Vue.createApp({
         return {
             utilityBarComponent: UtilityBar,
             utilityBarData: {},
+            isMobile: false,
         };
     },
     methods: {
         onSetUtilityBar(value) {
-            console.log("asd");
-            this.utilityBarComponent = value;
+            if (value === null) {
+                this.utilityBarComponent = UtilityBar;
+            } else {
+                this.utilityBarComponent = value;
+            }
         },
         onSetUtilityData(data) {
             this.utilityBarData = data;
         },
+        onResize() {
+            this.isMobile = window.innerWidth < 700;
+        },
+    },
+    created() {
+        window.addEventListener("resize", this.onResize);
+        this.mobileQuery = window.matchMedia("(max-width: 700px)");
+    },
+    beforeDestroy() {
+        window.removeEventListener("resize", this.onResize);
     },
 });
 

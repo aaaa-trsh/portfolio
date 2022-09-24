@@ -30,10 +30,9 @@
         <div class="content-container">
             <navigation-bar v-if="$route.path !== '/'">
             </navigation-bar>
-            <p>{{windowWidth}}</p>
             <component 
                 class="mobile-utility-bar-content"
-                v-if="windowWidth < 650"
+                v-if="isMobile"
                 :is="utilityBarComponent"
                 @set-utility-data="onSetUtilityData"
             ></component>

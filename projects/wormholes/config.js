@@ -1,4 +1,5 @@
-const path = "./projects/wormholes/";
+const id = "wormholes";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,7 +8,8 @@ export default {
         transform: "scale(2)",
         filter: "contrast(0.95) brightness(0.9)",
     },
-    title: "Wormholes 'n Chill",
+    id: id,
+    title: "Worm<wbr>holes 'n Chill",
     type: "game",
     game: {
         type: "web",

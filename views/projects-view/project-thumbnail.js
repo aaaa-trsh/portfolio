@@ -6,7 +6,7 @@ export default {
     template:
     /* html */`
     <div class="projects-grid-item" v-if="enabled">
-        <router-link :to="{ path: '/project/' + project.title }">
+        <router-link :to="{ path: '/project/' + project.id }">
             <img 
                 :src="project.thumbnail.image"
                 :style="{

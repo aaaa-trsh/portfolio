@@ -1,4 +1,5 @@
-const path = "./projects/trshmvmt/";
+const id = "trshmvmt";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,6 +8,7 @@ export default {
         transform: "scale(1)",
         filter: "contrast(1.2) brightness(0.9) saturate(1.23)",
     },
+    id: id,
     title: "trsh-mvmt",
     type: "game",
     game: {

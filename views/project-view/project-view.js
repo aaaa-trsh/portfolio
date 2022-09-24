@@ -1,25 +1,23 @@
 import Projects from "../../projects/projects.js";
-import ProjectUtilityBar from "./project-utility-bar.js";
 
 export default {
-    components: {
-        ProjectUtilityBar,
-    },
     template:
     /* html */`
-    <div>
+    <div class="article-wrapper">
         <div class="article-container">
-            <h1 class="article-title">{{project.title}}</h1>
+            <h1 class="article-title" v-html="project.title"></h1>
             <p class="article-text" v-html="project.article.summary"></p>
             <div 
-                class="article-gallery"
+                class="article-gallery-wrapper"
                 v-if="project[project.type].screenshots"
-            >
-                <img 
-                    class="article-gallery-item"
-                    :src="screenshotSrc"
-                    v-for="screenshotSrc in project[project.type].screenshots"
-                />
+            >   
+                <div class="article-gallery">
+                    <img 
+                        class="article-gallery-item"
+                        :src="screenshotSrc"
+                        v-for="screenshotSrc in project[project.type].screenshots"
+                    />
+                </div>
             </div>
             <p class="article-text" v-html="article"/>
         </div>
@@ -32,7 +30,7 @@ export default {
     },
     computed: {
         project() {
-            const candidates = this.projects.filter((project) => project.title === this.$route.params.id);
+            const candidates = this.projects.filter((project) => project.id === this.$route.params.id);
             return candidates.length > 0 ? candidates[0] : null;
         },
         article() {
@@ -40,6 +38,6 @@ export default {
         },
     },
     created() {
-        this.$emit("setUtilityBar", ProjectUtilityBar);
+        this.$emit("setUtilityBar", null);
     },
 };

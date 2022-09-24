@@ -1,4 +1,5 @@
-const path = "./projects/groupthink/";
+const id = "groupthink";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,7 +8,8 @@ export default {
         transform: "scale(-2.4, 2.4) rotateZ(-5deg)",
         filter: "saturate(1.13) blur(.2px)",
     },
-    title: "groupTHINK",
+    id: id,
+    title: "group<wbr>THINK",
     type: "game",
     game: {
         type: "web",

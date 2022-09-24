@@ -1,4 +1,5 @@
-const path = "./projects/labs/";
+const id = "labs";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,6 +8,7 @@ export default {
         transform: "scale(2.3)",
         filter: "contrast(.9) brightness(1)",
     },
+    id: id,
     title: "Wave Function Labs",
     type: "misc",
 };

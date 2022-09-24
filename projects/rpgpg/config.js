@@ -1,4 +1,5 @@
-const path = "./projects/rpgpg/";
+const id = "rpgpg";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,6 +8,7 @@ export default {
         transform: "scale(1.2)",
         filter: "contrast(1.05) brightness(1.2) saturate(1.1)",
     },
+    id: id,
     title: "RPGPG",
     type: "game",
     game: {

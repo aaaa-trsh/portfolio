@@ -7,6 +7,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     color: white;
+    overflow: hidden;
 }
 
 #app {
@@ -67,32 +68,52 @@ body {
     pointer-events: none;
 }
 
-.utility-bar-content li .strikethrough {
-    top: -5px;
+.mobile-utility-bar-content li .strikethrough, .utility-bar-content li .strikethrough {
+    top: 50%;
     width: 0%;
     white-space: nowrap;
     display: flex;
     float: right;
 }
 
-.utility-bar-content li:hover .strikethrough {
+.mobile-utility-bar-content li:hover .strikethrough, .utility-bar-content li:hover .strikethrough {
     width: 100%;
 }
 
-.utility-bar-content .strikethrough.active {
+.mobile-utility-bar-content .strikethrough.active, .utility-bar-content .strikethrough.active {
     width: 100%;
+}
+
+.mobile-utility-bar-content {
+    display: none;
+    padding: 0 25px;
+    text-transform: lowercase;
+    font-size: 20px;
+    white-space: nowrap;
+    padding-bottom: 20px;
+}
+
+.mobile-utility-bar-content ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mobile-utility-bar-content li {
+    position: relative;
+    width: fit-content;
 }
 
 .content-container {
     flex: 1;
     display: flex;
-    /* flex-direction: row; */
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .navigation-bar-container {
     height: 100%;
-    width: 200px;
+    width: min(200px, 18vw);
+    display: inline-block;
     padding: 0 25px;
 }
 
@@ -114,8 +135,10 @@ body {
 
 .content {
     flex: 1;
+    width: 100%;
     background: linear-gradient(#000c, #0000), url(../assets/content-bg.png) repeat fixed;
     background-size: 200px;
+    padding-bottom: 100px;
 }
 
 .content::after {
@@ -123,49 +146,53 @@ body {
 }
 
 .article-container {
-    padding-left: 8px;
-    width: 98%;
+    padding: 0px 8px;
     animation: fade 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .article-title {
-    font-size: 100px;
+    font-size: min(100px, 8vw);
     font-weight: 100;
     text-transform: uppercase;
     letter-spacing: 10px;
-    transform: scaleY(0.9);
-    /* border-bottom: 2px solid white; */
+    transform: scaleY(0.8);
+    margin-top: -.2em;
     width: fit-content;
     text-shadow:
     -1.5px 0px 0 #fff,
     -1px 0px 0 #fff,
     1px 0px 0 #fff,
     1.5px 0px 0 #fff;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+    /* transition: all .1s; */
 }
 
 .article-text {
     margin-left: 7px;
     letter-spacing: 1.2px;
     line-height: 1.5;
-    width: 40%;
+    width: 70%;
+}
+
+.article-gallery-wrapper {
+    margin: 50px 0px 50px;
+    display: inline-block;
+    width: fit-content;
+    max-width: 70%;
+    /* width: min(70%, 1000px); */
+    height: 200px;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .article-gallery {
-    margin: 50px 7px 50px;
     display: flex;
-    width: 100%;
-    /* border: 1px red solid; */
-    height: 200px;
     gap: 50px;
 }
 
 .article-gallery-item {
     object-fit: cover;
-    /* display: none; */
+    height: 200px;
+    /* overflow: hidden; */
 }
 
 ::-webkit-scrollbar {
@@ -191,34 +218,73 @@ body {
     background: #fff4;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
     .content-container {
         flex-flow: column;
     }
 
-    .navigation-bar-container {
+    .content-container > .navigation-bar-container {
         width: 100%;
         padding: 0;
         height: fit-content;
         margin-bottom: 10px;
+        font-size: 20px;
+
     }
-    .navigation-bar-container ul {
+
+    .content-container > .navigation-bar-container ul {
         width: calc(100% - 50px);
         justify-content: space-between;
         display: flex;
         padding: 0 25px;
     }
 
-    .navigation-bar-container li {
+    .content-container > .navigation-bar-container li {
         text-align: center;
+        font-size: 20px;
     }
 
     .utility-bar-content {
         display: none;
     }
 
+    .mobile-utility-bar-content {
+        display: block;
+    }
+
     .utility-bar-logo {
         margin: 0 auto;
+    }
+
+    .article-wrapper {
+        border-top: 6px solid transparent;
+        border-image: 6 repeating-linear-gradient(45deg, #fff3 0, #fff3 30px, transparent 0, transparent 40px);
+        padding-top: 20px;
+    }
+
+    .article-container {
+        padding: 0px 16px;
+    }
+    
+    .article-title {
+        font-size: min(100px, 13vw);
+    }
+
+    .article-gallery-wrapper {
+        max-width: 100%;
+
+    }
+
+    .article-gallery {
+        width: 100%;
+    }
+
+    .article-text {
+        margin: 0;
+        width: 100%;
+        line-height: 1.7;
+        font-size: 12pt;
+        padding: 0;
     }
 }
 

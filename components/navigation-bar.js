@@ -4,7 +4,7 @@ export default {
     <div class="navigation-bar-container">
         <ul>
             <li>
-                <div class="strikethrough" :class="{ active: $route.path == '/projects/game' }"/>
+                <div class="strikethrough" :class="{ active: $route.path.startsWith('/projects/') }"/>
                 <router-link to="/projects/game">PROJECTS</router-link>
             </li>
             <li>

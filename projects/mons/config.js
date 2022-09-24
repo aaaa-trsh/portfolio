@@ -1,4 +1,5 @@
-const path = "./projects/mons/";
+const id = "mons";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,6 +8,7 @@ export default {
         transform: "scale(1.2) rotateZ(-5deg)",
         filter: "contrast(1.14) brightness(1.1) saturate(1.13)",
     },
+    id: id,
     title: "MONS",
     type: "game",
     game: {

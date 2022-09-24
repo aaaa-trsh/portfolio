@@ -1,4 +1,5 @@
-const path = "./projects/gridgunner/";
+const id = "gridgunner";
+const path = `./projects/${id}/`;
 
 export default {
     thumbnail: {
@@ -7,6 +8,7 @@ export default {
         transform: "scale(2.5)",
         filter: "contrast(0.9) brightness(1.05) saturate(1.2)",
     },
+    id: id,
     title: "Grid Gunner",
     type: "game",
     game: {
