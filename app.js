@@ -41,6 +41,10 @@ const app = Vue.createApp({
             utilityBarComponent: UtilityBar,
             utilityBarData: {},
             isMobile: false,
+            iconPos: [
+                Math.random() * 100,
+                Math.random() * 100,
+            ],
         };
     },
     methods: {
@@ -58,9 +62,23 @@ const app = Vue.createApp({
             this.isMobile = window.innerWidth < 700;
         },
     },
+    watch: {
+        $route() {
+            this.iconPos = [
+                Math.random() * 100,
+                Math.random() * 100,
+            ];
+        },
+    },
     created() {
         window.addEventListener("resize", this.onResize);
         this.mobileQuery = window.matchMedia("(max-width: 700px)");
+        setInterval(() => {
+            this.iconPos = [
+                Math.random() * 100,
+                Math.random() * 100,
+            ];
+        }, 10000);
     },
     beforeDestroy() {
         window.removeEventListener("resize", this.onResize);
